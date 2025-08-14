@@ -1,0 +1,8 @@
+<!-- day8自定义组件 -->
+@page "/zidingyizujian"
+@using week_2.Shared
+<h3>自定义计数按钮</h3>
+<p @bind="count">当前计数值:  </p>
+<CountButton increase/>
+<CountButton step = "1"/>
+<CountButton step = "5"/>

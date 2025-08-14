@@ -1,0 +1,22 @@
+<!-- day13依赖注入 -->
+@page "/todo-service"
+<h3>使用依赖注入Todo</h3>
+<input @bind ="newTask"/>
+<button @onclick="Add">添加</button>
+<ul>
+    @foreach(var task in todoService.Tasks){
+        <li>@task</li>
+    }
+</ul>
+@code{
+    [Inject]
+    TodoService todoService {get;set;}
+    string newTask =" ";
+    void Add(){
+        if(!string.IsNullOrWhiteSpace(newTask)){
+            todoService.AddTask(newTask);
+            newTask ="";
+            
+        }
+    }
+}

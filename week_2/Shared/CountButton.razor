@@ -1,0 +1,11 @@
+<button class="btn btn-primary" @onclick ="increase">+@step</button>
+@code{
+    [Parameter]
+    public int step{get;set;}
+    int count=0;
+    void increase(){
+        count+=step;
+        Console.WriteLine($"当前计数是{count}");
+    }
+}
+<!-- day8自定义组件 -->

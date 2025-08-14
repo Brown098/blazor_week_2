@@ -1,0 +1,17 @@
+<!-- day9父子组件通信 -->
+@page "/todo"
+@using week_2.Shared
+<h3>父子组件通信</h3>
+<TodoInput OnAdd="AddTask"/>
+<ul>
+    @foreach (var task in tasks)
+    {
+        <li>@task</li>
+    }
+</ul>
+@code{
+    List<string> tasks = new();
+        void AddTask(string task){
+            tasks.Add(task);
+        }
+}

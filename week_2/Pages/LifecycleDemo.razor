@@ -1,0 +1,20 @@
+<!-- day12生命周期方法 -->
+@page "/lifecycle"
+<p>@messag</p>
+@code{
+    string messag = "初始化";
+        protected override void OnInitialized()
+        {
+           messag = "OnInitialized()方法被调用";
+           Console.WriteLine("OnInitialized");
+        }
+        protected override void OnParametersSet()
+        {
+           Console.WriteLine("OnParametersSet方法被调用");
+        }
+        protected override void OnAfterRender(bool firstRender)
+        {
+           if(firstRender)
+           Console.WriteLine("首次渲染完成");
+        }
+}

@@ -1,0 +1,20 @@
+<!-- 第九天父子组件通信  与14天第二周小项目共享 -->
+<input @bind="text" placeholder="输入任务" @onkeypress="CheckEnter"/>
+<button class = "btn btn_success" @onclick ="Add">添加</button>
+@code{
+    [Parameter]
+    public EventCallback<string> OnAdd{get;set;}
+    string text = "";
+    async Task Add(){
+        if(!string.IsNullOrWhiteSpace(text))
+        {
+            await OnAdd.InvokeAsync(text);
+            text="";
+        }
+    }
+    async Task CheckEnter(KeyboardEventArgs e)
+    {
+        if(e.Key =="Enter")
+        await Add();
+    }
+}

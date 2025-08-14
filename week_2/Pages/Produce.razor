@@ -1,0 +1,13 @@
+<!-- day11路由参数 -->
+@page "/product/{id:int}"
+<h3>产品详情</h3>
+<p>产品ID: @id</p>
+<button class="btn btn_primary" @onclick="Goext">下一个产品</button>
+@code{
+    [Parameter]
+    public int id {get;set;}
+    [Inject]NavigationManager Nav {get;set;}
+    void Goext(){
+        Nav.NavigateTo($"/product/{id+1}");
+    }
+}
